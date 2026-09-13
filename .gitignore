@@ -1,0 +1,184 @@
+# ============================================================
+
+# FireGuard Capsule™ - Public Repository Git Ignore
+
+# ============================================================
+
+# ------------------------------------------------------------
+
+# Flutter / Dart
+
+# ------------------------------------------------------------
+
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# ------------------------------------------------------------
+
+# IDE
+
+# ------------------------------------------------------------
+
+.idea/
+.vscode/
+*.iml
+
+# ------------------------------------------------------------
+
+# Android
+
+# ------------------------------------------------------------
+
+android/.gradle/
+android/local.properties
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# ------------------------------------------------------------
+
+# iOS
+
+# ------------------------------------------------------------
+
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+
+# ------------------------------------------------------------
+
+# macOS
+
+# ------------------------------------------------------------
+
+macos/Pods/
+macos/.symlinks/
+
+# ------------------------------------------------------------
+
+# Windows / Linux generated files
+
+# ------------------------------------------------------------
+
+windows/flutter/ephemeral/
+linux/flutter/ephemeral/
+
+# ------------------------------------------------------------
+
+# Python
+
+# ------------------------------------------------------------
+
+**pycache**/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Python virtual environments
+
+venv/
+.venv/
+env/
+fireguard_backend/venv/
+fireguard_backend/.venv/
+
+# Python caches / test output
+
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ------------------------------------------------------------
+
+# Environment variables / secrets
+
+# ------------------------------------------------------------
+
+.env
+.env.*
+!.env.example
+
+# ------------------------------------------------------------
+
+# Logs
+
+# ------------------------------------------------------------
+
+*.log
+
+# ------------------------------------------------------------
+
+# Local databases
+
+# ------------------------------------------------------------
+
+*.db
+*.sqlite
+*.sqlite3
+
+# ------------------------------------------------------------
+
+# Local backups / historical working copies
+
+# ------------------------------------------------------------
+
+fireguard_backup/
+.git-private-history-backup/
+**/*_backup.*
+**/**before** .*
+**/*backup_before_* .*
+**/*.backup_*
+**/*.backup_before_*
+
+# ------------------------------------------------------------
+
+# Local AI datasets
+
+# Large/raw scientific datasets should not be committed.
+
+# Their provenance and reproducibility are documented separately.
+
+# ------------------------------------------------------------
+
+fireguard_backend/ai/data/*.nc
+fireguard_backend/ai/data/*.csv
+ai/data/*.csv
+
+# ------------------------------------------------------------
+
+# Local AI model artifacts
+
+# Production model distribution will be decided separately.
+
+# ------------------------------------------------------------
+
+fireguard_backend/ai/data/*.pkl
+fireguard_backend/ai/fire_model.pkl
+
+# ------------------------------------------------------------
+
+# Python-generated local AI/runtime files
+
+# ------------------------------------------------------------
+
+fireguard_backend/ai/**pycache**/
+fireguard_backend/ai/**/*.pyc
+
+# ------------------------------------------------------------
+
+# OS-generated files
+
+# ------------------------------------------------------------
+
+.DS_Store
+Thumbs.db
+
+# Historical development backups
+**/*backup*
+**/*before_*
