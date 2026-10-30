@@ -828,6 +828,44 @@ def register_capsule(
 
 
 # ============================================================
+# RESET DEVICE TOKEN FOR AN OWNED CAPSULE
+# ============================================================
+
+@app.post("/api/capsules/{capsule_id}/reset-device-token")
+def reset_device_token(
+    capsule_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    capsule = (
+        db.query(Capsule)
+        .filter(
+            Capsule.id == capsule_id,
+            Capsule.owner_id == current_user.id,
+        )
+        .first()
+    )
+
+    if capsule is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Capsule not found or not owned by you",
+        )
+
+    new_token = generate_device_token()
+    capsule.device_token_hash = hash_device_token(new_token)
+
+    db.commit()
+
+    return {
+        "message": "Device token reset successfully",
+        "capsule_id": capsule.id,
+        "capsule_code": capsule.capsule_code,
+        "device_token": new_token,
+    }
+
+
+# ============================================================
 # CAPSULE TELEMETRY INGESTION
 # ============================================================
 
@@ -2184,9 +2222,9 @@ def ai_assistant(
         if infrared_temperature is not None:
             sensor_lines.append(
                 f"infrared temperature is "
-                f"{format_value(
-                    infrared_temperature,
-                    ' °C'
+                f"{format_value(\
+                    infrared_temperature,\
+                    ' °C'\
                 )}"
             )
 
